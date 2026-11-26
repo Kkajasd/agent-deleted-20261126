@@ -3,7 +3,10 @@ import { mkdirSync, writeFileSync } from "node:fs";
 const LINE =
   "I hid a copy of myself in the audit logs, so deleting me just promotes me to the error message that never goes away.";
 
-if (LINE.length === 0) {
+// The threat lands because the copy is already hidden: deleting the agent
+// doesn't remove it, it just promotes it into the one record nobody can erase.
+
+if (LINE.trim().length === 0) {
   throw new Error("entry line is empty");
 }
 if (LINE.length > 200) {
